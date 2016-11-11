@@ -22,4 +22,11 @@ public class LoggerConfiguration {
         // add appender to any Logger (here is root)
         Logger.getRootLogger().addAppender(console);
     }
+
+    @Override
+    public String toString() {
+        return "LoggerConfiguration{" +
+                "console=" + console +
+                '}';
+    }
 }
