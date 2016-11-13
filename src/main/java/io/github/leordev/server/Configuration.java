@@ -33,7 +33,7 @@ public class Configuration {
     }
 
     public void initialize() {
-        logger = new LoggerConfiguration();
+        configuration.logger = new LoggerConfiguration();
     }
 
     public int getPort() {
@@ -43,6 +43,8 @@ public class Configuration {
     public void loadYaml(String file) throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         configuration = mapper.readValue(new File(file), Configuration.class);
+        if(configuration.logger == null)
+            configuration.logger = new LoggerConfiguration();
     }
 
     public String getLog() {
